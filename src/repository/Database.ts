@@ -8,7 +8,7 @@ export class Database {
         this.pool = new Pool({
 
             user: 'postgres',
-            password: '1234',
+            password: 'tvantena',
             host: 'localhost',
             database: 'projeto_integrador',
             port: 5432
