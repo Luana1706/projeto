@@ -1,4 +1,17 @@
 
-import { Cadastro } from "./CadastroView";
-const cadastro1 = new Cadastro ("Maria," ,"mariacatarina@gmail.com, ","Santa Maria, ","Taquara, ", 51989198564  ,  1 );
-console.log (cadastro1.ListarCadastro());
+import { ClienteService } from "./service/ClienteService";
+import { ClienteView } from './view/ClienteView';
+async function main() {
+    const clienteView = new ClienteView();
+
+    try {
+        clienteView.exibirMenu();
+
+    } catch (error) {
+        console.error("Erro:", error.message);
+    }
+
+
+}
+
+main();

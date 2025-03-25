@@ -16,26 +16,32 @@ export class ClienteRepository {
         return result.rows.map(row => new Cliente(row.id, row.nome, row.email, row.cidade, row.telefone, row.endereco));
     }
 
-    public async buscarPorId(id: string): Promise<Cliente[]> {
-        const query = "SELECT * FROM SISTEMA.CADASTRO_RESPONSAVEL WHERE ID = $1";
+    public async buscarPorId(id: string): Promise<Cliente> {
+        const query = "SELECT * FROM SISTEMA.CADASTRO_RESPONSAVEL WHERE ID=$1";
         const result = await this.pool.query(query, [id]);
 
-        return result.rows.map(row => new Cliente(row.id, row.nome, row.email, row.cidade, row.telefone, row.endereco));
+        //const listarClientes: CadastroCliente[] = [];
+       // for (const row of result.rows) {
+            const cliente = new Cliente(result.rows[0].nome, result.rows[0].id,  result.rows[0].telefone, result.rows[0].email, result.rows[0].endereco,result.rows[0].cidade);
+         
+       // }
+
+        return cliente;
     }
 
     public async inserirCliente(id: string, nome: string, email: string, telefone: string, endereco: string, cidade: string): Promise<void> {
-        const query = "INSERT INTO SISTEMA.CADASTRO_RESPONSAVEL (id, nome, email, telefone, endereco, cidade) VALUES ($1, $2, $3, $4, $5, $6)";
+        const query = "INSERT * FROM SISTEMA.CADASTRO_RESPONSAVEL (id, nome, email, telefone, endereco, cidade) VALUES ($1, $2, $3, $4, $5, $6)";
         await this.pool.query(query, [id, nome, email, telefone, endereco, cidade]);
     }
     public async atualizarCliente(
-        id: number,
+        id: string,
         email: string,
         telefone: string,
         endereco: string,
         cidade: string
     ): Promise<void> {
         const query = `
-            UPDATE PROJETO.CADASTROCLIENTES
+            UPDATE SISTEMA.CADASTRO_CLIENTES
             SET email = $1, telefone = $2, endereco = $3, cidade = $4
             WHERE id = $5
         `;
@@ -47,9 +53,9 @@ export class ClienteRepository {
         }
     }
 
-    public async deletarCliente(id: number): Promise<void> {
+    public async deletarCliente(id: string): Promise<void> {
         const query = `
-            DELETE FROM PROJETO.CADASTROCLIENTES
+            DELETE FROM SISTEMA.CADASTRO_CLIENTES
             WHERE id = $1
         `;
 
