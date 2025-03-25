@@ -30,7 +30,8 @@ export class ClienteRepository {
     }
 
     public async inserirCliente(id: string, nome: string, email: string, telefone: string, endereco: string, cidade: string): Promise<void> {
-        const query = "INSERT * FROM SISTEMA.CADASTRO_RESPONSAVEL (id, nome, email, telefone, endereco, cidade) VALUES ($1, $2, $3, $4, $5, $6)";
+       console.log("vou inserir") 
+       const query = "INSERT INTO SISTEMA.CADASTRO_RESPONSAVEL (id, nome, email, telefone, endereco, cidade) VALUES ($1, $2, $3, $4, $5, $6)";
         await this.pool.query(query, [id, nome, email, telefone, endereco, cidade]);
     }
     public async atualizarCliente(

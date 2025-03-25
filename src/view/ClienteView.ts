@@ -16,7 +16,7 @@ export class ClienteView {
         do {
             console.log("+********************************+");
             console.log("|          Cliente Menu          |");
-            console.log("+--------------------------------+");
+            console.log("+################################+");
             console.log("| 1. Inserir Cliente             |");
             console.log("| 2. Listar Clientes             |");
             console.log("| 3. Buscar Cliente por ID       |");
