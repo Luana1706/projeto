@@ -42,7 +42,7 @@ export class ClienteRepository {
         cidade: string
     ): Promise<void> {
         const query = `
-            UPDATE SISTEMA.CADASTRO_CLIENTES
+            UPDATE SISTEMA.CADASTRO_RESPONSAVEL
             SET email = $1, telefone = $2, endereco = $3, cidade = $4
             WHERE id = $5
         `;
@@ -56,7 +56,7 @@ export class ClienteRepository {
 
     public async deletarCliente(id: string): Promise<void> {
         const query = `
-            DELETE FROM SISTEMA.CADASTRO_CLIENTES
+            DELETE FROM SISTEMA.CADASTRO_RESPONSAVEL
             WHERE id = $1
         `;
 

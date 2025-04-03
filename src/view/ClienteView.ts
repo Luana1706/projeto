@@ -17,11 +17,11 @@ export class ClienteView {
             console.log("+********************************+");
             console.log("|          Cliente Menu          |");
             console.log("+################################+");
-            console.log("| 1. Inserir Cliente             |");
-            console.log("| 2. Listar Clientes             |");
-            console.log("| 3. Buscar Cliente por ID       |");
-            console.log("| 4. Deletar Cliente             |");
-            console.log("| 5. Atualizar Cliente           |");
+            console.log("| 1. Inserir Responsavel         |");
+            console.log("| 2. Listar Responsavel          |");
+            console.log("| 3. Buscar Responsavel por ID   |");
+            console.log("| 4. Deletar Responsavel         |");
+            console.log("| 5. Atualizar Responsavel       |");
             console.log("| 0. Sair                        |");
             console.log("+********************************+");
 
